@@ -1,6 +1,6 @@
 # 🔥 Smart-Temperature-Gas-Detection-System
 
-An IoT-based smart safety system using Arduino UNO and ESP32 to detect gas leakage and abnormal temperature. The system provides real-time alerts using LED, buzzer, LCD display, and cloud monitoring via ThingSpeak.
+An Arduino UNO based smart safety system that detects gas leakage and abnormal temperature conditions using MQ gas sensor and DHT11 sensor. The system provides instant alerts using LED, buzzer, and LCD display.
 
 ---
 
@@ -8,35 +8,36 @@ An IoT-based smart safety system using Arduino UNO and ESP32 to detect gas leaka
 
 - Detect gas leakage using MQ sensor  
 - Monitor temperature and humidity using DHT11  
-- Trigger alert system when danger detected  
-- Send real-time data to cloud (IoT monitoring)
+- Trigger alert system during dangerous conditions  
+- Display real-time values on LCD
 
 ---
 
 ## ⚙️ Components Used
 
 - Arduino UNO  
-- ESP32 WiFi Module  
 - DHT11 Sensor  
 - MQ Gas Sensor  
 - 16x2 LCD (I2C)  
 - LED  
 - Buzzer  
-- Jumper Wires  
+- Jumper wires  
 
 ---
 
 ## 🔄 Working Principle
 
-1. DHT11 reads temperature and humidity  
-2. MQ sensor detects gas level  
-3. Arduino compares values with threshold  
-4. If danger condition occurs:
-   - Gas > 400 OR Temperature > 28°C  
-   → LED and Buzzer turn ON  
-   → LCD shows WARNING message  
+- DHT11 reads temperature and humidity  
+- MQ sensor detects gas level  
+- Arduino processes sensor values  
 
-5. ESP32 sends sensor data to ThingSpeak cloud
+- If danger condition occurs:
+  - Gas > 400 OR Temperature > 28°C  
+  → LED and Buzzer turn ON  
+  → LCD shows WARNING / DANGER message  
+
+- If normal condition:
+  → LCD shows real-time sensor values  
 
 ---
 
@@ -50,19 +51,19 @@ An IoT-based smart safety system using Arduino UNO and ESP32 to detect gas leaka
 
 ---
 
-## 📡 IoT Integration
+## 📡 System Type
 
-- Data sent from Arduino → ESP32 via Serial communication  
-- ESP32 uploads data to ThingSpeak cloud  
-- Remote monitoring possible anytime  
+- Embedded monitoring system  
+- No cloud / IoT used  
+- Fully real-time local safety system  
 
 ---
 
 ## 📷 Project Output
 
-- LCD displays real-time temperature, humidity, and gas values  
-- Alert message shown during danger condition  
-- Cloud dashboard updates live data  
+- LCD displays temperature, humidity, and gas values  
+- Warning message during danger condition  
+- LED and buzzer alert system works in real-time  
 
 ---
 
@@ -70,14 +71,14 @@ An IoT-based smart safety system using Arduino UNO and ESP32 to detect gas leaka
 
 - Home safety system  
 - Industrial gas leakage detection  
-- Smart IoT monitoring systems  
-- Fire & hazard prevention systems  
+- Fire prevention system  
+- Smart embedded monitoring system  
 
 ---
 
 ## 👨‍💻 Developed By
 
-Karthi  
+Karthikeyan M  
 Electronics & IoT Project
 
 ---
