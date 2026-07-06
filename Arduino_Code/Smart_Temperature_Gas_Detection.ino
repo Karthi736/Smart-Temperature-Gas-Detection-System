@@ -80,17 +80,17 @@ void loop() {
   if (danger) {
     lcd.setCursor(0,0);
     
-    // Condition 1: Both high
+    // Condition 1: Both high (Exactly 16 characters)
     if (gasDanger && tempDanger) {
-      lcd.print(" !!! DANGER !!! ");
+      lcd.print(" !!! DANGER !!! "); 
     } 
-    // Condition 2: Gas high
+    // Condition 2: Gas high (Exactly 16 characters)
     else if (gasDanger) {
-      lcd.print(" ! GAS WARNING ! ");
+      lcd.print(" ! GAS WARNING !"); 
     } 
-    // Condition 3: Temp high
+    // Condition 3: Temp high (Exactly 16 characters)
     else if (tempDanger) {
-      lcd.print(" ! TEMP WARNING ! ");
+      lcd.print("! TEMP WARNING !"); 
     }
 
     // Bottom row
@@ -102,7 +102,6 @@ void loop() {
     lcd.print("    ");
   }
   else {
-
     lcd.setCursor(0,0);
     lcd.print("   SAFE ZONE    ");
 
