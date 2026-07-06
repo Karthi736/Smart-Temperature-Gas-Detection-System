@@ -160,7 +160,7 @@ Smart-Temperature-Gas-Detection-System
 
 **Karthikeyan M**
 
-Electronics and Electronics Engineering Student
+Electrical and Electronics Engineering Student
 
 ---
 
