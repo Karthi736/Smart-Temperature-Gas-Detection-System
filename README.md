@@ -1,15 +1,15 @@
 # 🔥 Smart-Temperature-Gas-Detection-System
 
-An Arduino UNO based smart safety system that detects gas leakage and abnormal temperature conditions using MQ gas sensor and DHT11 sensor. The system provides instant alerts using LED, buzzer, and LCD display.
+An Arduino UNO based smart safety system that detects gas leakage and abnormal temperature using MQ gas sensor and DHT11 sensor. The system provides real-time alerts using LED, buzzer, and LCD display.
 
 ---
 
 ## 🎯 Objective
 
-- Detect gas leakage using MQ sensor  
+- Detect harmful gas leakage using MQ sensor  
 - Monitor temperature and humidity using DHT11  
-- Trigger alert system during dangerous conditions  
-- Display real-time values on LCD
+- Provide instant alert system using buzzer and LED  
+- Display real-time values on LCD  
 
 ---
 
@@ -21,7 +21,7 @@ An Arduino UNO based smart safety system that detects gas leakage and abnormal t
 - 16x2 LCD (I2C)  
 - LED  
 - Buzzer  
-- Jumper wires  
+- Jumper Wires  
 
 ---
 
@@ -29,15 +29,15 @@ An Arduino UNO based smart safety system that detects gas leakage and abnormal t
 
 - DHT11 reads temperature and humidity  
 - MQ sensor detects gas level  
-- Arduino processes sensor values  
+- Arduino processes sensor data  
 
 - If danger condition occurs:
   - Gas > 400 OR Temperature > 28°C  
   → LED and Buzzer turn ON  
-  → LCD shows WARNING / DANGER message  
+  → LCD shows "DANGER" message  
 
 - If normal condition:
-  → LCD shows real-time sensor values  
+  → LCD shows real-time values  
 
 ---
 
@@ -53,17 +53,25 @@ An Arduino UNO based smart safety system that detects gas leakage and abnormal t
 
 ## 📡 System Type
 
-- Embedded monitoring system  
+- Embedded real-time monitoring system  
 - No cloud / IoT used  
-- Fully real-time local safety system  
+- Fully local safety alert system  
+
+---
+
+## 🔗 Circuit Design
+
+You can view the circuit design here:
+
+https://app.cirkitdesigner.com/project/00073028-c51b-4fdc-a3f5-2e0000e93342
 
 ---
 
 ## 📷 Project Output
 
 - LCD displays temperature, humidity, and gas values  
-- Warning message during danger condition  
-- LED and buzzer alert system works in real-time  
+- LED and buzzer activate during danger condition  
+- Real-time monitoring system  
 
 ---
 
@@ -72,14 +80,14 @@ An Arduino UNO based smart safety system that detects gas leakage and abnormal t
 - Home safety system  
 - Industrial gas leakage detection  
 - Fire prevention system  
-- Smart embedded monitoring system  
+- Smart embedded monitoring  
 
 ---
 
 ## 👨‍💻 Developed By
 
 Karthikeyan M  
-Electronics & IoT Project
+Electronics & IoT Project  
 
 ---
 
