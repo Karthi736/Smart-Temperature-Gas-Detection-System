@@ -5,26 +5,26 @@ Board        : Arduino UNO
 Sensors      : DHT11, MQ Gas Sensor
 Display      : 16x2 I2C LCD
 Alert System : LED and Buzzer
-Author       : Karthi
-Year         : 2025
+Author       : Karthikeyan M
+Year         : 2026
 ---------------------------------------------------------
 */
 
 #include <LiquidCrystal_I2C.h>
 #include <DHT.h>
 
-// Pin Definitions
+// ================= PIN DEFINITIONS =================
 #define DHTPIN 4
 #define DHTTYPE DHT11
 #define MQPIN A0
 #define LEDPIN 8
 #define BUZZERPIN 9
 
-// Threshold Values
+// ================= THRESHOLDS =================
 const int GAS_THRESHOLD = 400;
 const float TEMP_THRESHOLD = 28.0;
 
-// Create Objects
+// ================= OBJECTS =================
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -41,79 +41,86 @@ void setup() {
 
   Serial.begin(9600);
 
-  lcd.setCursor(0, 0);
-  lcd.print("System Ready");
+  lcd.setCursor(0,0);
+  lcd.print("  System Ready  ");
   delay(2000);
   lcd.clear();
 }
 
 void loop() {
 
-  // Read sensor values
+  // ================= SENSOR READ =================
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature();
   int gasValue = analogRead(MQPIN);
 
-  // Check sensor reading
+  // ================= SENSOR ERROR CHECK =================
   if (isnan(humidity) || isnan(temperature)) {
+    lcd.setCursor(0,0);
+    lcd.print("  Sensor Error  ");
+    lcd.setCursor(0,1);
+    lcd.print("  Check DHT11   ");
 
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("Sensor Error");
-
-    Serial.println("Failed to read DHT11 sensor");
-
+    Serial.println("DHT11 Error");
     delay(2000);
     return;
   }
 
-  // Check alert condition
-  if (gasValue > GAS_THRESHOLD || temperature > TEMP_THRESHOLD) {
+  // ================= DANGER LOGIC =================
+  bool gasDanger = (gasValue > GAS_THRESHOLD);
+  bool tempDanger = (temperature > TEMP_THRESHOLD);
+  bool danger = gasDanger || tempDanger;
 
-    digitalWrite(LEDPIN, HIGH);
-    digitalWrite(BUZZERPIN, HIGH);
+  // ================= OUTPUT CONTROL =================
+  digitalWrite(LEDPIN, danger);
+  digitalWrite(BUZZERPIN, danger);
 
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("!!! DANGER !!!");
+  // ================= DISPLAY LOGIC (FLICKER-FREE) =================
 
-    lcd.setCursor(0, 1);
-    lcd.print("Gas:");
+  if (danger) {
+    lcd.setCursor(0,0);
+    
+    // Condition 1: Both high
+    if (gasDanger && tempDanger) {
+      lcd.print(" !!! DANGER !!! ");
+    } 
+    // Condition 2: Gas high
+    else if (gasDanger) {
+      lcd.print(" ! GAS WARNING ! ");
+    } 
+    // Condition 3: Temp high
+    else if (tempDanger) {
+      lcd.print(" ! TEMP WARNING ! ");
+    }
+
+    // Bottom row
+    lcd.setCursor(0,1);
+    lcd.print("T:");
+    lcd.print(temperature, 1);
+    lcd.print("C G:");
     lcd.print(gasValue);
-
+    lcd.print("    ");
   }
   else {
 
-    digitalWrite(LEDPIN, LOW);
-    digitalWrite(BUZZERPIN, LOW);
+    lcd.setCursor(0,0);
+    lcd.print("   SAFE ZONE    ");
 
-    lcd.clear();
-
-    lcd.setCursor(0, 0);
+    lcd.setCursor(0,1);
     lcd.print("T:");
-    lcd.print(temperature,1);
-    lcd.print("C");
-
-    lcd.setCursor(9, 0);
-    lcd.print("H:");
-    lcd.print(humidity,0);
-
-    lcd.setCursor(0, 1);
-    lcd.print("Gas:");
+    lcd.print(temperature, 1);
+    lcd.print("C G:");
     lcd.print(gasValue);
+    lcd.print("    ");
   }
 
-  // Serial Monitor Output
-  Serial.print("Temperature : ");
+  // ================= SERIAL MONITOR =================
+  Serial.print("Temp: ");
   Serial.print(temperature);
-  Serial.print(" C");
-
-  Serial.print(" | Humidity : ");
+  Serial.print(" C | Humidity: ");
   Serial.print(humidity);
-  Serial.print(" %");
-
-  Serial.print(" | Gas Value : ");
+  Serial.print(" % | Gas: ");
   Serial.println(gasValue);
 
-  delay(2000);
+  delay(1000);
 }
