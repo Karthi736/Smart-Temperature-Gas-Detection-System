@@ -1,96 +1,173 @@
-# 🔥 Smart-Temperature-Gas-Detection-System
+# 🔥 Smart Temperature and Gas Detection System
 
-An Arduino UNO based smart safety system that detects gas leakage and abnormal temperature using MQ gas sensor and DHT11 sensor. The system provides real-time alerts using LED, buzzer, and LCD display.
-
----
-
-## 🎯 Objective
-
-- Detect harmful gas leakage using MQ sensor  
-- Monitor temperature and humidity using DHT11  
-- Provide instant alert system using buzzer and LED  
-- Display real-time values on LCD  
+An Arduino UNO based embedded system designed to detect abnormal temperature and harmful gas leakage using the DHT11 and MQ Gas Sensor. The system provides instant visual and audible alerts through an LCD display, LED, and buzzer to improve safety in indoor environments.
 
 ---
 
-## ⚙️ Components Used
+## 📌 Project Overview
 
-- Arduino UNO  
-- DHT11 Sensor  
-- MQ Gas Sensor  
-- 16x2 LCD (I2C)  
-- LED  
-- Buzzer  
-- Jumper Wires  
+The Smart Temperature and Gas Detection System continuously monitors the surrounding environment by measuring temperature, humidity, and gas concentration. Whenever the sensed values exceed predefined safety thresholds, the system immediately activates the LED and buzzer while displaying an appropriate warning message on the LCD.
+
+This project demonstrates the implementation of a simple embedded safety monitoring system using Arduino UNO.
 
 ---
 
-## 🔄 Working Principle
+## 🎯 Objectives
 
-- DHT11 reads temperature and humidity  
-- MQ sensor detects gas level  
-- Arduino processes sensor data  
-
-- If danger condition occurs:
-  - Gas > 400 OR Temperature > 28°C  
-  → LED and Buzzer turn ON  
-  → LCD shows "DANGER" message  
-
-- If normal condition:
-  → LCD shows real-time values  
+- Monitor surrounding temperature and humidity.
+- Detect harmful gas leakage.
+- Display real-time sensor values.
+- Provide immediate warning using LED and buzzer.
+- Improve safety through continuous monitoring.
 
 ---
 
-## 🚨 Alert Conditions
+## 🛠️ Hardware Components
 
-| Condition | Action |
-|----------|--------|
-| Gas > 400 | Buzzer + LED ON |
-| Temp > 28°C | Warning Alert |
-| Normal | System Stable |
+- Arduino UNO
+- DHT11 Temperature and Humidity Sensor
+- MQ Gas Sensor
+- 16×2 I2C LCD Display
+- LED
+- Active Buzzer
+- Breadboard
+- Jumper Wires
+- USB Cable
 
 ---
 
-## 📡 System Type
+## 💻 Software Used
 
-- Embedded real-time monitoring system  
-- No cloud / IoT used  
-- Fully local safety alert system  
+- Arduino IDE
+- Cirkit Designer
+- GitHub
+
+---
+
+## ⚙️ Working Principle
+
+1. The DHT11 sensor measures temperature and humidity.
+2. The MQ Gas Sensor measures the gas concentration.
+3. Arduino continuously reads both sensor values.
+4. The measured values are compared with predefined threshold values.
+5. If temperature exceeds **28°C**, a **Temperature Warning** is displayed.
+6. If gas value exceeds **400**, a **Gas Warning** is displayed.
+7. If both exceed their thresholds, a **Danger** warning is displayed.
+8. During warning conditions, the LED and buzzer are activated.
+9. Under normal conditions, the LCD displays **SAFE ZONE** along with the current sensor readings.
+
+---
+
+## 🚨 Threshold Values
+
+| Parameter | Threshold |
+|-----------|----------:|
+| Temperature | 28°C |
+| Gas Sensor | 400 |
+
+---
+
+## 📟 LCD Display Status
+
+| Condition | LCD Message |
+|-----------|-------------|
+| Normal | SAFE ZONE |
+| High Temperature | TEMP WARNING |
+| High Gas | GAS WARNING |
+| High Temperature + High Gas | DANGER |
+| Sensor Error | SENSOR ERROR |
 
 ---
 
 ## 🔗 Circuit Design
 
-You can view the circuit design here:
+The complete circuit was designed using **Cirkit Designer**.
 
 https://app.cirkitdesigner.com/project/00073028-c51b-4fdc-a3f5-2e0000e93342
 
 ---
 
-## 📷 Project Output
+## 📷 Project Images
 
-- LCD displays temperature, humidity, and gas values  
-- LED and buzzer activate during danger condition  
-- Real-time monitoring system  
+### Hardware Setup
 
----
-
-## 💡 Applications
-
-- Home safety system  
-- Industrial gas leakage detection  
-- Fire prevention system  
-- Smart embedded monitoring  
+![Hardware Setup](Images/Hardware_Setup.png)
 
 ---
 
-## 👨‍💻 Developed By
+### Safe Zone
 
-Karthikeyan M  
-Electronics & IoT Project  
+![Safe Zone](Images/Safe_Zone.png)
 
 ---
 
-## 📜 License
+### Gas Warning
 
-This project is open-source under MIT License.
+![Gas Warning](Images/Gas_Warning.png)
+
+---
+
+### Temperature Warning
+
+![Temperature Warning](Images/Temperature_Warning.png)
+
+---
+
+### Danger Mode
+
+![Danger Mode](Images/Danger_Mode.png)
+
+---
+
+## 📁 Repository Structure
+
+```
+Smart-Temperature-Gas-Detection-System
+│
+├── Arduino_Code
+│   └── Smart_Temperature_Gas_Detection.ino
+│
+├── Circuit
+│   └── Circuit_Diagram.png
+│
+├── Documentation
+│   └── Project_Report.pdf
+│
+├── Images
+│   ├── Hardware_Setup.png
+│   ├── Safe_Zone.png
+│   ├── Gas_Warning.png
+│   ├── Temperature_Warning.png
+│   └── Danger_Mode.png
+│
+├── README.md
+└── LICENSE
+```
+
+---
+
+## 🚀 Future Improvements
+
+- ESP32 IoT Integration
+- ThingSpeak Cloud Monitoring
+- Mobile Notification System
+- Wi-Fi Based Remote Monitoring
+- Automatic Exhaust Fan Control
+
+---
+
+## 👨‍💻 Author
+
+**Karthikeyan M**
+
+Electronics and Communication Engineering Student
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+### ⭐ If you found this project useful, consider giving this repository a Star.
