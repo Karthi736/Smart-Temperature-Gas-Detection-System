@@ -56,15 +56,17 @@ This project is designed as a low-cost, reliable, and easy-to-implement safety m
 
 # Circuit Diagram
 
-![Circuit Diagram](Circuit/Circuit_Diagram.png)
+## Circuit Diagram
+
+*(Add Circuit Diagram Image Here)*
 
 ---
 
 # Circuit Design
 
-The complete circuit was designed and verified using **Cirkit Designer**.
+The complete circuit was designed and verified using Cirkit Designer.
 
-Project Link:
+Project Link
 
 https://app.cirkitdesigner.com/project/00073028-c51b-4fdc-a3f5-2e0000e93342
 
@@ -72,7 +74,7 @@ https://app.cirkitdesigner.com/project/00073028-c51b-4fdc-a3f5-2e0000e93342
 
 # Hardware Setup
 
-![Hardware Setup](Images/Hardware_Setup.png)
+*(Add Hardware Setup Image Here)*
 
 ---
 
@@ -80,37 +82,31 @@ https://app.cirkitdesigner.com/project/00073028-c51b-4fdc-a3f5-2e0000e93342
 
 ## Safe Zone
 
-![Safe Zone](Images/Safe_Zone.png)
-
----
+*(Add Safe Zone LCD Image)*
 
 ## Temperature Warning
 
-![Temperature Warning](Images/Temperature_Warning.png)
-
----
+*(Add Temperature Warning LCD Image)*
 
 ## Gas Warning
 
-![Gas Warning](Images/Gas_Warning.png)
-
----
+*(Add Gas Warning LCD Image)*
 
 ## Danger Mode
 
-![Danger Mode](Images/Danger_Mode.png)
+*(Add Danger Mode LCD Image)*
 
 ---
 
 # Working Principle
 
-1. Arduino UNO continuously reads data from the DHT11 sensor and MQ Gas Sensor.
-2. Temperature and gas values are compared with predefined threshold values.
-3. If the values remain within the safe range, the LCD displays **SAFE ZONE**.
-4. If only the temperature exceeds **28°C**, the LCD displays **TEMP WARNING**.
-5. If only the gas value exceeds **400**, the LCD displays **GAS WARNING**.
-6. If both values exceed the threshold limits, the LCD displays **DANGER**.
-7. During unsafe conditions, both the LED and buzzer are activated automatically.
+- Arduino UNO continuously reads data from the DHT11 sensor and MQ Gas Sensor.
+- Temperature and gas values are compared with predefined threshold values.
+- If the values remain within the safe range, the LCD displays **SAFE ZONE**.
+- If only the temperature exceeds **28°C**, the LCD displays **TEMP WARNING**.
+- If only the gas value exceeds **400**, the LCD displays **GAS WARNING**.
+- If both values exceed the threshold limits, the LCD displays **DANGER**.
+- During unsafe conditions, both the LED and buzzer are activated automatically.
 
 ---
 
@@ -147,6 +143,9 @@ Smart-Temperature-Gas-Detection-System
 ├── Circuit
 │   └── Circuit_Diagram.png
 │
+├── Documentation
+│   └── Project_Report.pdf
+│
 ├── Images
 │   ├── Hardware_Setup.png
 │   ├── Safe_Zone.png
@@ -154,7 +153,8 @@ Smart-Temperature-Gas-Detection-System
 │   ├── Gas_Warning.png
 │   └── Danger_Mode.png
 │
-├── Project_Report.pdf
+├── Presentation
+│   └── Smart_Temperature_Gas_Detection_Presentation.pptx
 │
 ├── README.md
 │
@@ -171,9 +171,21 @@ The complete Arduino source code is available in the **Arduino_Code** folder.
 
 # Documentation
 
-The complete project documentation is available as:
+The complete project report is available in the **Documentation** folder.
 
-**Project_Report.pdf**
+**File**
+
+- Project_Report.pdf
+
+---
+
+# Project Presentation
+
+The complete PowerPoint presentation is available in the **Presentation** folder.
+
+**File**
+
+- Smart_Temperature_Gas_Detection_Presentation.pptx
 
 ---
 
