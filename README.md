@@ -58,15 +58,15 @@ This project is designed as a low-cost, reliable, and easy-to-implement safety m
 
 The complete circuit was designed and verified using Cirkit Designer before hardware implementation.
 
-![Circuit Diagram](Circuit/Circuit_Diagram.png)
+<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Circuit/Circuit_Diagram.png" width="700">
 
 ---
 
 # Circuit Design
 
-The circuit was first designed and tested using Cirkit Designer to verify all hardware connections before assembling the physical prototype.
+The circuit was designed and verified using Cirkit Designer.
 
-**Project Link**
+Project Link
 
 https://app.cirkitdesigner.com/project/00073028-c51b-4fdc-a3f5-2e0000e93342
 
@@ -76,7 +76,7 @@ https://app.cirkitdesigner.com/project/00073028-c51b-4fdc-a3f5-2e0000e93342
 
 The hardware prototype consists of an Arduino UNO, DHT11 Temperature and Humidity Sensor, MQ Gas Sensor, 16×2 I2C LCD Display, LED, Active Buzzer, Breadboard, and Jumper Wires.
 
-![Hardware Setup](Images/Hardware_Setup.png)
+<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Hardware_Setup.png" width="700">
 
 ---
 
@@ -86,7 +86,7 @@ The hardware prototype consists of an Arduino UNO, DHT11 Temperature and Humidit
 
 Under normal environmental conditions, the LCD displays **SAFE ZONE** and both the LED and buzzer remain OFF.
 
-![Safe Zone](Images/Safe_Zone.png)
+<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Safe_Zone.png" width="450">
 
 ---
 
@@ -94,7 +94,7 @@ Under normal environmental conditions, the LCD displays **SAFE ZONE** and both t
 
 When the measured temperature exceeds **28°C**, the LCD displays **TEMP WARNING**, while the LED and buzzer are activated automatically.
 
-![Temperature Warning](Images/Temperature_Warning.png)
+<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Temperature_Warning.png" width="450">
 
 ---
 
@@ -102,7 +102,7 @@ When the measured temperature exceeds **28°C**, the LCD displays **TEMP WARNING
 
 When the MQ Gas Sensor detects combustible gas above the threshold value of **400**, the LCD displays **GAS WARNING**, and the LED and buzzer are activated.
 
-![Gas Warning](Images/Gas_Warning.png)
+<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Gas_Warning.png" width="450">
 
 ---
 
@@ -110,7 +110,7 @@ When the MQ Gas Sensor detects combustible gas above the threshold value of **40
 
 When both the temperature and gas level exceed the predefined threshold values simultaneously, the LCD displays **DANGER**, and both the LED and buzzer remain ON.
 
-![Danger Mode](Images/Danger_Mode.png)
+<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Danger_Mode.png" width="450">
 
 ---
 
@@ -182,7 +182,7 @@ Smart-Temperature-Gas-Detection-System
 
 # Source Code
 
-The complete Arduino program is available in the **Arduino_Code** folder.
+The complete Arduino source code is available in the **Arduino_Code** folder.
 
 ---
 
