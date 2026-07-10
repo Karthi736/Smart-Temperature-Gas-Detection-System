@@ -1,6 +1,18 @@
-# Smart Temperature and Gas Detection System Using Arduino UNO
+<p align="center">
+<img src="./Images/Project_Banner.png" width="100%">
+</p>
 
-## Overview
+<h1 align="center">
+Smart Temperature and Gas Detection System Using Arduino UNO
+</h1>
+
+<p align="center">
+An Arduino UNO based safety monitoring system for real-time temperature monitoring and gas leakage detection.
+</p>
+
+---
+
+# Overview
 
 The Smart Temperature and Gas Detection System is an embedded safety monitoring project developed using the **Arduino UNO** microcontroller.
 
@@ -63,7 +75,7 @@ This project is designed as a low-cost, reliable, and easy-to-implement safety m
 The complete circuit was designed and verified using **Cirkit Designer** before hardware implementation.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Circuit/Circuit_Diagram.png" width="550">
+<img src="./Circuit/Circuit_Diagram.png" width="550">
 </p>
 
 ---
@@ -83,7 +95,7 @@ https://app.cirkitdesigner.com/project/00073028-c51b-4fdc-a3f5-2e0000e93342
 The hardware prototype consists of an Arduino UNO, DHT11 Temperature and Humidity Sensor, MQ Gas Sensor, 16×2 I2C LCD Display, LED, Active Buzzer, Breadboard, and Jumper Wires.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Hardware_Setup.png" width="550">
+<img src="./Images/Hardware_Setup.png" width="550">
 </p>
 
 ---
@@ -95,7 +107,7 @@ The hardware prototype consists of an Arduino UNO, DHT11 Temperature and Humidit
 Under normal environmental conditions, the LCD displays **SAFE ZONE** and both LED and buzzer remain OFF.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Safe_Zone.png" width="350">
+<img src="./Images/Safe_Zone.png" width="350">
 </p>
 
 ---
@@ -105,7 +117,7 @@ Under normal environmental conditions, the LCD displays **SAFE ZONE** and both L
 When the measured temperature exceeds **28°C**, the LCD displays **TEMP WARNING** and the LED and buzzer are activated automatically.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Temperature_Warning.png" width="350">
+<img src="./Images/Temperature_Warning.png" width="350">
 </p>
 
 ---
@@ -115,7 +127,7 @@ When the measured temperature exceeds **28°C**, the LCD displays **TEMP WARNING
 When the MQ Gas Sensor detects combustible gas above the threshold value of **400**, the LCD displays **GAS WARNING** and the LED and buzzer are activated.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Gas_Warning.png" width="350">
+<img src="./Images/Gas_Warning.png" width="350">
 </p>
 
 ---
@@ -125,21 +137,21 @@ When the MQ Gas Sensor detects combustible gas above the threshold value of **40
 When both temperature and gas levels exceed the predefined threshold values simultaneously, the LCD displays **DANGER** and both LED and buzzer remain ON.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Danger_Mode.png" width="350">
+<img src="./Images/Danger_Mode.png" width="350">
 </p>
 
 ---
 
 # Working Principle
 
-* Arduino UNO continuously reads temperature and humidity values from the DHT11 sensor.
-* MQ Gas Sensor continuously measures combustible gas concentration.
-* Arduino compares sensor values with predefined threshold values.
-* If the readings are within safe limits, the LCD displays **SAFE ZONE**.
-* If temperature exceeds **28°C**, the system displays **TEMP WARNING**.
-* If gas value exceeds **400**, the system displays **GAS WARNING**.
-* If both temperature and gas exceed their limits, the system displays **DANGER**.
-* During unsafe conditions, LED and buzzer are activated immediately.
+1. Arduino UNO reads temperature and humidity values from the DHT11 sensor.
+2. MQ Gas Sensor continuously measures gas concentration.
+3. Arduino compares sensor values with predefined threshold values.
+4. If values are within limits, LCD displays **SAFE ZONE**.
+5. If temperature exceeds **28°C**, **TEMP WARNING** is displayed.
+6. If gas value exceeds **400**, **GAS WARNING** is displayed.
+7. If both conditions exceed limits, **DANGER MODE** is activated.
+8. LED and buzzer provide immediate warning indication.
 
 ---
 
@@ -180,6 +192,7 @@ Smart-Temperature-Gas-Detection-System
 │   └── Project_Report.pdf
 │
 ├── Images
+│   ├── Project_Banner.png
 │   ├── Hardware_Setup.png
 │   ├── Safe_Zone.png
 │   ├── Temperature_Warning.png
@@ -198,7 +211,12 @@ Smart-Temperature-Gas-Detection-System
 
 # Source Code
 
-The complete Arduino source code is available in the **Arduino_Code** folder.
+The complete Arduino source code is available in:
+
+```text
+Arduino_Code/
+└── Smart_Temperature_Gas_Detection.ino
+```
 
 ---
 
@@ -206,9 +224,11 @@ The complete Arduino source code is available in the **Arduino_Code** folder.
 
 The complete project report is available in the **Documentation** folder.
 
-**File:**
+File:
 
-`Project_Report.pdf`
+```text
+Project_Report.pdf
+```
 
 ---
 
@@ -216,9 +236,11 @@ The complete project report is available in the **Documentation** folder.
 
 The complete PowerPoint presentation is available in the **Presentation** folder.
 
-**File:**
+File:
 
-`Smart_Temperature_Gas_Detection_Presentation.pptx`
+```text
+Smart_Temperature_Gas_Detection_Presentation.pptx
+```
 
 ---
 
