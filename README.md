@@ -1,232 +1,253 @@
-# Smart Temperature and Gas Detection System Using Arduino UNO
+# AI-Based Predictive Transformer Health Monitoring and Preventive Protection System Using Arduino UNO
 
 ## Overview
 
-The Smart Temperature and Gas Detection System is an embedded safety monitoring project developed using the Arduino UNO microcontroller. The system continuously monitors the surrounding temperature and detects combustible gas leakage using a DHT11 Temperature and Humidity Sensor and an MQ Gas Sensor.
+Transformer is one of the most important components in electrical power systems. Unexpected transformer failures can lead to power interruptions, maintenance difficulties, and increased operational costs.
 
-Whenever the measured temperature exceeds **28°C** or the gas sensor value exceeds **400**, the Arduino activates an LED and buzzer while displaying an appropriate warning message on a 16×2 I2C LCD display.
+This project presents an **AI-Based Predictive Transformer Health Monitoring and Preventive Protection System using Arduino UNO**. The system continuously monitors transformer temperature and load conditions. Based on the collected parameters, the Arduino calculates a **Transformer Health Score**, estimates failure probability, and predicts the risk level.
 
-The system provides four operating states:
-
-- Safe Zone
-- Temperature Warning
-- Gas Warning
-- Danger
-
-This project is designed as a low-cost, reliable, and easy-to-implement safety monitoring solution suitable for homes, laboratories, and educational applications.
+The proposed system provides automatic cooling control, relay-based protection, and real-time status monitoring through an LCD display.
 
 ---
 
-# Features
+# Table of Contents
 
-- Real-time Temperature Monitoring
-- Real-time Gas Leakage Detection
-- Temperature and Humidity Monitoring
-- 16×2 I2C LCD Display
-- LED Alert System
-- Active Buzzer Alert
-- Four Operating Modes
-- Arduino UNO Based Embedded System
-- Low-Cost Hardware Design
-- Easy Installation and Maintenance
+* [Objectives](#objectives)
+* [System Features](#system-features)
+* [Hardware Components](#hardware-components)
+* [Software Requirements](#software-requirements)
+* [System Architecture](#system-architecture)
+* [Working Principle](#working-principle)
+* [Health Score Calculation](#health-score-calculation)
+* [Risk Classification](#risk-classification)
+* [Automatic Protection System](#automatic-protection-system)
+* [Circuit Diagram](#circuit-diagram)
+* [Flowchart](#flowchart)
+* [Simulation](#simulation)
+* [LCD Monitoring Output](#lcd-monitoring-output)
+* [Results](#results)
+* [Arduino Code](#arduino-code)
+* [Future Improvements](#future-improvements)
+* [Conclusion](#conclusion)
+* [Author](#author)
+* [License](#license)
+
+---
+
+# Objectives
+
+* To monitor transformer temperature continuously.
+* To simulate transformer load variations.
+* To calculate transformer health condition using sensor parameters.
+* To estimate failure probability and remaining life.
+* To provide automatic cooling control.
+* To protect the transformer during abnormal conditions.
+* To develop a low-cost predictive monitoring system.
+
+---
+
+# System Features
+
+* Real-time temperature monitoring
+* Load condition monitoring
+* AI-based Health Score calculation
+* Failure probability estimation
+* Remaining life estimation
+* Risk level classification
+* Automatic cooling control using servo motor
+* Relay-based protection system
+* LED warning indication
+* Buzzer alert system
+* Fault counting mechanism
+* LCD dashboard monitoring
 
 ---
 
 # Hardware Components
 
-- Arduino UNO
-- DHT11 Temperature and Humidity Sensor
-- MQ Gas Sensor
-- 16×2 I2C LCD Display
-- LED
-- Active Buzzer
-- Breadboard
-- Jumper Wires
-- USB Cable
+| Component                | Purpose                              |
+| ------------------------ | ------------------------------------ |
+| Arduino UNO              | Main processing controller           |
+| DHT22 Temperature Sensor | Measures transformer temperature     |
+| Potentiometer            | Simulates transformer load condition |
+| 16x2 I2C LCD Display     | Displays system status               |
+| Servo Motor              | Cooling system simulation            |
+| Relay Module             | Transformer protection control       |
+| LED                      | Visual warning indication            |
+| Buzzer                   | Audio alert indication               |
 
 ---
 
-# Software Used
+# Software Requirements
 
-- Arduino IDE
-- Embedded C
-- Cirkit Designer
-
----
-
-# Circuit Diagram
-
-The complete circuit was designed and verified using Cirkit Designer before hardware implementation.
-
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Circuit/Circuit_Diagram.png" width="700">
+| Software        | Purpose                                   |
+| --------------- | ----------------------------------------- |
+| Arduino IDE     | Program development                       |
+| Wokwi Simulator | Circuit simulation                        |
+| GitHub          | Project documentation and version control |
 
 ---
 
-# Circuit Design
+# System Architecture
 
-The circuit was designed and verified using Cirkit Designer.
+The system consists of temperature monitoring, load monitoring, health analysis, prediction, and protection modules.
 
-Project Link
-
-https://app.cirkitdesigner.com/project/00073028-c51b-4fdc-a3f5-2e0000e93342
-
----
-
-# Hardware Setup
-
-The hardware prototype consists of an Arduino UNO, DHT11 Temperature and Humidity Sensor, MQ Gas Sensor, 16×2 I2C LCD Display, LED, Active Buzzer, Breadboard, and Jumper Wires.
-
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Hardware_Setup.png" width="700">
-
----
-
-# System Output
-
-## Safe Zone
-
-Under normal environmental conditions, the LCD displays **SAFE ZONE** and both the LED and buzzer remain OFF.
-
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Safe_Zone.png" width="450">
-
----
-
-## Temperature Warning
-
-When the measured temperature exceeds **28°C**, the LCD displays **TEMP WARNING**, while the LED and buzzer are activated automatically.
-
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Temperature_Warning.png" width="450">
-
----
-
-## Gas Warning
-
-When the MQ Gas Sensor detects combustible gas above the threshold value of **400**, the LCD displays **GAS WARNING**, and the LED and buzzer are activated.
-
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Gas_Warning.png" width="450">
-
----
-
-## Danger Mode
-
-When both the temperature and gas level exceed the predefined threshold values simultaneously, the LCD displays **DANGER**, and both the LED and buzzer remain ON.
-
-<img src="https://raw.githubusercontent.com/Karthi736/Smart-Temperature-Gas-Detection-System/main/Images/Danger_Mode.png" width="450">
+<img src="Images/Block_Diagram.png" width="600">
 
 ---
 
 # Working Principle
 
-- Arduino UNO continuously reads temperature and humidity from the DHT11 sensor.
-- The MQ Gas Sensor continuously measures combustible gas concentration.
-- The Arduino compares both sensor readings with predefined threshold values.
-- If the readings remain within the safe range, the LCD displays **SAFE ZONE**.
-- If only the temperature exceeds **28°C**, the LCD displays **TEMP WARNING**.
-- If only the gas value exceeds **400**, the LCD displays **GAS WARNING**.
-- If both values exceed the threshold limits, the LCD displays **DANGER**.
-- During unsafe conditions, both the LED and buzzer are activated immediately.
+1. The DHT22 sensor measures transformer temperature.
+2. The potentiometer provides simulated load values.
+3. Arduino UNO collects sensor data.
+4. The controller processes temperature and load conditions.
+5. A Health Score is calculated based on input conditions.
+6. The system classifies transformer risk level.
+7. Cooling and protection actions are automatically activated.
+8. The LCD displays real-time transformer health status.
 
 ---
 
-# Pin Configuration
+# Health Score Calculation
 
-| Component | Arduino Pin |
-|-----------|-------------|
-| DHT11 Data | D4 |
-| MQ Gas Sensor | A0 |
-| LED | D8 |
-| Buzzer | D9 |
-| LCD SDA | A4 |
-| LCD SCL | A5 |
+The transformer health condition is represented using a Health Score ranging from 0 to 100.
 
----
+The Health Score is calculated based on:
 
-# Threshold Values
+* Temperature condition
+* Load condition
+* Abnormal operating conditions
 
-| Parameter | Threshold |
-|-----------|-----------|
-| Temperature | 28°C |
-| Gas Sensor | 400 |
+Higher Health Score indicates a healthier transformer condition.
 
 ---
 
-# Project Structure
+# Risk Classification
 
-```text
-Smart-Temperature-Gas-Detection-System
+| Health Score Range | Risk Level    |
+| ------------------ | ------------- |
+| 80 - 100           | LOW Risk      |
+| 50 - 79            | MEDIUM Risk   |
+| 25 - 49            | HIGH Risk     |
+| Below 25           | CRITICAL Risk |
+
+---
+
+# Automatic Protection System
+
+## LOW Risk
+
+* Normal operation
+* Cooling system OFF
+* No warning indication
+
+## MEDIUM Risk
+
+* Increased monitoring
+* Cooling assistance activated
+
+## HIGH Risk
+
+* Cooling system ON
+* LED warning activated
+
+## CRITICAL Risk
+
+* Relay protection activated
+* Buzzer alert generated
+* Fault condition recorded
+
+---
+
+# Circuit Diagram
+
+<img src="Images/Circuit_Diagram.png" width="600">
+
+---
+
+# Flowchart
+
+<img src="Images/Flowchart.png" width="500">
+
+---
+
+# Simulation
+
+The proposed system is simulated using the Wokwi online simulation platform.
+
+Simulation Link:
+
+https://wokwi.com/projects/469066635947975681
+
+---
+
+# LCD Monitoring Output
+
+## Normal Condition
+
+<img src="Images/LCD_Normal.png" width="400">
+
+## Transformer Status
+
+<img src="Images/LCD_Status.png" width="400">
+
+## Prediction Output
+
+<img src="Images/LCD_Prediction.png" width="400">
+
+## Critical Condition
+
+<img src="Images/LCD_Critical.png" width="400">
+
+---
+
+# Results
+
+The developed system successfully performs:
+
+* Temperature monitoring
+* Load condition analysis
+* Health Score calculation
+* Risk prediction
+* Cooling control
+* Relay protection
+* Alert generation
+
+The LCD dashboard provides real-time transformer condition monitoring.
+
+---
+
+# Arduino Code
+
+The complete Arduino program is available in:
+
+```
+Arduino_Code/
 │
-├── Arduino_Code
-│   └── Smart_Temperature_Gas_Detection.ino
-│
-├── Circuit
-│   └── Circuit_Diagram.png
-│
-├── Documentation
-│   └── Project_Report.pdf
-│
-├── Images
-│   ├── Hardware_Setup.png
-│   ├── Safe_Zone.png
-│   ├── Temperature_Warning.png
-│   ├── Gas_Warning.png
-│   └── Danger_Mode.png
-│
-├── Presentation
-│   └── Smart_Temperature_Gas_Detection_Presentation.pptx
-│
-├── README.md
-│
-└── LICENSE
+└── AI_Transformer_Health_Monitoring.ino
 ```
 
 ---
 
-# Source Code
+# Future Improvements
 
-The complete Arduino source code is available in the **Arduino_Code** folder.
-
----
-
-# Documentation
-
-The complete project report is available in the **Documentation** folder.
-
-**File**
-
-- Project_Report.pdf
+* Integration with IoT cloud platforms
+* Mobile application monitoring
+* Real transformer data collection
+* Machine Learning based prediction model
+* Wireless communication system
+* Advanced fault diagnosis techniques
 
 ---
 
-# Project Presentation
+# Conclusion
 
-The complete PowerPoint presentation is available in the **Presentation** folder.
+The AI-Based Predictive Transformer Health Monitoring and Preventive Protection System using Arduino UNO provides an efficient and low-cost solution for transformer condition monitoring.
 
-**File**
+The system continuously evaluates temperature and load conditions, predicts transformer health status, and provides preventive protection through automatic cooling and relay control.
 
-- Smart_Temperature_Gas_Detection_Presentation.pptx
-
----
-
-# Applications
-
-- Home Safety Monitoring
-- Kitchen Gas Leakage Detection
-- Laboratory Safety Systems
-- Small-Scale Industries
-- Educational Embedded Projects
-- Environmental Monitoring
-
----
-
-# Future Enhancements
-
-- IoT Integration
-- GSM SMS Alerts
-- Wi-Fi Monitoring
-- Mobile Application
-- Cloud Data Logging
-- Automatic Exhaust Fan Control
-- Automatic Gas Valve Shut-Off
-- AI-Based Hazard Prediction
+This project demonstrates the application of intelligent monitoring techniques in electrical power systems.
 
 ---
 
@@ -240,10 +261,12 @@ V.S.B College of Engineering Technical Campus
 
 Anna University
 
-Academic Year: **2023–2027**
+Academic Year: 2023–2027
 
 ---
 
 # License
 
 This project is licensed under the **MIT License**.
+
+You are free to use, modify, and distribute this project for educational and research purposes with proper credit to the original author.
